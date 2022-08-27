@@ -23,6 +23,7 @@ public class TankController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _moveSpeed = _maxSpeed;
         MoveTank();
         TurnTank();
     }
