@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     TankController _tankController;
 
+    int _treasureCount = 0;
+
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
@@ -23,17 +25,9 @@ public class Player : MonoBehaviour
 
     public void IncreaseHealth(int amount)
     {
-        //_currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
-        //Debug.Log("Player's new health: " + _currentHealth);
-        if (_currentHealth + amount <= _maxHealth)
-        {
-            _currentHealth += amount;
-            Debug.Log("Player's new health: " + _currentHealth);
-        }
-        else
-        {
-            Debug.Log("already max health");
-        }
+        _currentHealth += amount;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        Debug.Log("Player's health: " + _currentHealth);
     }
 
     public void DecreaseHealth(int amount)
@@ -51,5 +45,11 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         // play particle
         // play sounds
+    }
+
+    public void IncreaseTreasureCount(int amount)
+    {
+        _treasureCount += amount;
+        Debug.Log("Treasure Count: " + _treasureCount);
     }
 }
