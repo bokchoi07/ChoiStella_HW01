@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
@@ -12,9 +13,12 @@ public class Player : MonoBehaviour
 
     int _treasureCount = 0;
 
+    //Text _treasureTextUI = GetComponent<Text>();
+
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
+        
     }
     // Start is called before the first frame update
     private void Start()
@@ -50,6 +54,11 @@ public class Player : MonoBehaviour
     public void IncreaseTreasureCount(int amount)
     {
         _treasureCount += amount;
-        Debug.Log("Treasure Count: " + _treasureCount);
+        //_treasureTextUI.text = _treasureCount.ToString();
+    }
+
+    public int GetTreasureCount()
+    {
+        return _treasureCount;
     }
 }

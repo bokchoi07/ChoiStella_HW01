@@ -18,6 +18,4 @@ public static class AudioHelper
         // return in case other things need it
         return audioSource;
     }
-    
-
 }
