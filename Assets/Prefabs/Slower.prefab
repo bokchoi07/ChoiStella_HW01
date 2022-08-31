@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 1
-  _impactParticles: {fileID: 0}
-  _impactSound: {fileID: 0}
+  _impactParticles: {fileID: 4368338817947952544, guid: 15cbdbedd077ccb4e8903ec1f3091551, type: 3}
+  _impactSound: {fileID: 8300000, guid: 5e9ab55ee3934cf439b9ea5efe3a6123, type: 3}
   _slowAmount: 0.5

@@ -50,6 +50,7 @@ public abstract class CollectibleBase : MonoBehaviour
         if (_collectParticles != null)
         {
             _collectParticles = Instantiate(_collectParticles, transform.position, Quaternion.identity);
+            //Instantiate(_collectParticles, transform.position, transform.rotation);
         }
         // audio. TODO - consider obj pooling for performance
         if (_collectSound != null)
