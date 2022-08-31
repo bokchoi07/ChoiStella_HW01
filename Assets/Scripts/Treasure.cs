@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Treasure : CollectibleBase
 {
-    //[SerializeField] Text _treasureText = null;
+    [SerializeField] TMP_Text _treasureCount;
+
     protected override void Collect(Player player)
     {
         player.IncreaseTreasureCount(1);
-        //_treasureText.text = player.GetTreasureCount().ToString();
+        _treasureCount.text = player.GetTreasureCount().ToString();
     }
 }

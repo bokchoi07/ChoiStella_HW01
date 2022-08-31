@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     int _treasureCount = 0;
 
+    public bool isInvincible = false;
+
     //Text _treasureTextUI = GetComponent<Text>();
 
     private void Awake()
@@ -36,19 +38,23 @@ public class Player : MonoBehaviour
 
     public void DecreaseHealth(int amount)
     {
-        _currentHealth -= amount;
-        Debug.Log("Player's health: " + _currentHealth);
-        if(_currentHealth <= 0)
+        if (isInvincible == false)
         {
-            Kill();
+            _currentHealth -= amount;
+            Debug.Log("Player's health: " + _currentHealth);
+            if (_currentHealth <= 0)
+            {
+                Kill();
+            }
         }
     }
 
     public void Kill()
     {
-        gameObject.SetActive(false);
-        // play particle
-        // play sounds
+        if(isInvincible == false)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void IncreaseTreasureCount(int amount)

@@ -5,21 +5,42 @@ using UnityEngine;
 public class Invincibility : PowerUpBase
 {
     [SerializeField] Material _invincibilityMaterial = null;
-    protected override void OnTriggerEnter(Collider other)
+    [SerializeField] Material _playerMaterial = null;
+
+    /*protected override void OnTriggerEnter(Collider other)
     {
         GameObject _playerObject = other.gameObject;
-        //power up
         _playerObject.GetComponentInChildren<MeshRenderer>().material = _invincibilityMaterial;
-        //_playerObject.GetComponent<MeshRenderer>().material = _invincibilityMaterial;
-        gameObject.SetActive(false);
-    }
-    /*protected override void PowerUp(Player player)
-    {
         
+    }*/
+    protected override IEnumerator PowerUp(GameObject playerObject)
+    {
+        Debug.Log("power up" + base._powerupDuration);
+        
+        // disable visual and collider
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+
+        playerObject.GetComponent<Player>().isInvincible = true;
+        playerObject.GetComponentInChildren<MeshRenderer>().material = _invincibilityMaterial;
+
+        //Invoke("PowerDown", base.powerupDuration);
+        yield return new WaitForSeconds(base._powerupDuration);
+
+        PowerDown(playerObject);
     }
 
-    protected override void PowerDown(Player player)
+    protected override void PowerDown(GameObject playerObject)
     {
-        throw new System.NotImplementedException();
-    }*/
+        playerObject.GetComponent<Player>().isInvincible = false;
+        playerObject.GetComponentInChildren<MeshRenderer>().material = _playerMaterial;
+
+        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+
+        
+        Debug.Log("power down");
+
+        Destroy(gameObject);
+    }
 }

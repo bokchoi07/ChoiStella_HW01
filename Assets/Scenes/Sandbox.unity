@@ -243,6 +243,7 @@ MonoBehaviour:
   _movementSpeed: 1
   _collectParticles: {fileID: 0}
   _collectSound: {fileID: 0}
+  _treasureCount: {fileID: 418246397}
 --- !u!54 &371410292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -668,8 +669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b50dde399439e4eac714dc6ef39488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupDuration: 2.5
+  _powerupDuration: 5
+  _powerupParticles: {fileID: 8325708455885800094, guid: 66f52202918a9be49966d77ae41488cb, type: 3}
+  _powerupSound: {fileID: 8300000, guid: 972f5e28083d6344485bbcbbfd322c99, type: 3}
   _invincibilityMaterial: {fileID: 2100000, guid: 0a642b23c1d8ff4469c9ace1bf6dff8c, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: b1310ba89d583b1449ae1c0bf6e5b4f0, type: 2}
 --- !u!54 &1325167811
 Rigidbody:
   m_ObjectHideFlags: 0
